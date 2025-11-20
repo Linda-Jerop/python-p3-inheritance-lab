@@ -1,10 +1,23 @@
-#!/usr/bin/env python
+    #!/usr/bin/env python
 
 from user import User
 
 import random
 
-class Teacher(User):
+class Teacher(User):  # inherits from User class
+    
+    def __init__(self, first_name, last_name):  # initialize with first and last name
+        super().__init__(first_name, last_name)  # call parent class constructor
+        self.knowledge = [  # initialize with knowledge list
+            "str is a data type in Python",
+            "programming is hard, but it's worth it",
+            "JavaScript async web request",
+            "Python function call definition",
+            "object-oriented teacher instance",
+            "programming computers hacking learning terminal",
+            "pipenv install pipenv shell",
+            "pytest -x flag to fail fast",
+        ]
 
-    def teach(self):
-        pass
+    def teach(self):  # return a random element from knowledge
+        return self.knowledge[random.randint(0, len(self.knowledge) - 1)]  # get random index
